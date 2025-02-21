@@ -30,6 +30,13 @@ if (NOT "${BUILD_TOOL}" STRGREATER "")
     set(BUILD_TOOL "CODAL")
 endif()
 
+# Set the build directory for output files
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
+
+# Set output directory for hex file
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+
 #
 # Supress unecessary (and often inaccurate) validity check of the toolchain
 #
@@ -267,3 +274,4 @@ set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "")
 set(CMAKE_EXE_EXPORTS_C_FLAG "")
 set(CMAKE_EXE_EXPORTS_CXX_FLAG "")
+
