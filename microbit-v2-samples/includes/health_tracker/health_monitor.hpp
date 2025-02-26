@@ -1,0 +1,4 @@
+#ifndef HEALTH_MONITOR_HPP
+#define HEALTH_MONITOR_HPP
+
+#endif
