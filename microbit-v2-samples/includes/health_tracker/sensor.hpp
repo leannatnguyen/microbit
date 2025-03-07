@@ -6,7 +6,7 @@
 class Sensor {
     public:
         virtual ~Sensor();
-        virtual float read_data() const;
+        virtual int read_data() = 0;
 };
 
 #endif //SENSOR_HPP

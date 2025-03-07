@@ -1,11 +1,11 @@
-#include "step_counter.hpp"
-#include <MicroBit.h>
+// #include "step_counter.hpp"
+// #include <MicroBit.h>
 
-extern MicroBit uBit; // Access the global MicroBit instance
+// extern MicroBit uBit; // Access the global MicroBit instance
 
-StepCounter::StepCounter() : stepCount(0) {}
+// StepCounter::StepCounter() : stepCount(0) {}
 
-int StepCounter::read_data() {
-    // Read accelerometer and determine step count logic
-    return stepCount;
-}
+// int StepCounter::read_data() {
+//     // Read accelerometer and determine step count logic
+//     return stepCount;
+// }
