@@ -13,3 +13,6 @@ yotta_targets
 pxtapp
 buildcache.json
 *.pyc
+
+# Only allow tracking of codal_version.h
+!libraries/codal-core/inc/core/codal_version.h
