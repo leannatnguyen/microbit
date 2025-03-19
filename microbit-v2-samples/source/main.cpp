@@ -1,14 +1,20 @@
 #include "MicroBit.h"
 #include "samples/Tests.h"
+#include "HealthSensor.h"
+#include "TempSensor.h"
+#include <cstdio>
 
 MicroBit uBit;
 
-int main()
-{
+int main() {
     uBit.init();
+    uBit.display.scroll("I");  // Confirm micro:bit starts
 
-    out_of_box_experience();
-
-    microbit_panic( 999 );
+    TempSensor tempsense;
+    uBit.display.scroll("tempsense created");
+    
+    while (1) {
+        uBit.sleep(1000);
+    }
+    
 }
-
