@@ -1,15 +1,15 @@
-#ifndef TEMPSENSOR_H
-#define TEMPSENSOR_H
+#ifndef STEPCOUNTER_H
+#define STEPCOUNTER_H
 
 #include "HealthSensor.h"
 #include "MicroBitThermometer.h"
 
-class TempSensor : public HealthSensor {
+class StepCounter : public HealthSensor {
     // private:
     //     MicroBitThermometer thermometer;  // Declare thermometer object
 
     public:
-        TempSensor();
+        StepCounter();
         int readData();
 };
 
