@@ -5,12 +5,10 @@
 #include "MicroBitThermometer.h"
 
 class TempSensor : public HealthSensor {
-    // private:
-    //     MicroBitThermometer thermometer;  // Declare thermometer object
-
     public:
-        TempSensor();
-        int readData();
+        TempSensor(MicroBit &microbit) : HealthSensor(microbit) {}
+        int get_temp();
+        void update() override; 
 };
 
 #endif

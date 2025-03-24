@@ -1,19 +1,20 @@
 #include "TempSensor.h"
 #include <cstdio>
 
-extern MicroBit uBit;
-TempSensor::TempSensor() {
-    // thermometer.init();
-    uBit.sleep(500);
-}
+// extern MicroBit uBit;
 
 // TempSensor::~TempSensor() {
 //     // Optional: Clean-up logic
 // }
 
-int TempSensor::readData() {
+int TempSensor::get_temp() {
     int temp = uBit.thermometer.getTemperature();
     
     return (temp * 1.8) + 32;
-    // return thermometer.getTemperature();
+}
+
+void TempSensor::update() {
+    uBit.display.scroll("Temp (F): ");
+    int temp = get_temp();
+    uBit.display.scroll(temp);
 }
