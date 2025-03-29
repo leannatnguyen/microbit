@@ -7,14 +7,17 @@
 //     // Optional: Clean-up logic
 // }
 
-int TempSensor::get_temp() {
+
+void TempSensor::calculate_temp() {
     int temp = uBit.thermometer.getTemperature();
     
-    return (temp * 1.8) + 32;
+    temperature = (temp * 1.8) + 32;
+}
+
+int TempSensor::get_temp() {
+    return temperature;
 }
 
 void TempSensor::update() {
-    uBit.display.scroll("Temp (F): ");
-    int temp = get_temp();
-    uBit.display.scroll(temp);
+    calculate_temp();
 }

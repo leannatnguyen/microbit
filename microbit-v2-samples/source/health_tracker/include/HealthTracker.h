@@ -12,9 +12,10 @@ class HealthTracker {
 private:
     StepCounter step_counter;
     HeartRate heart_rate;
+    TempSensor temp_sensor;
     DisplayManager display_manager;
     Buzzer buzzer;
-    MicroBit& microbit;
+    MicroBit &uBit;
 
 public:
     HealthTracker(MicroBit &uBit);
