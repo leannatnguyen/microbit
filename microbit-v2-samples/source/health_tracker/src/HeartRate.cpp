@@ -1,18 +1,21 @@
 #include "HeartRate.h"
 #include "MicroBit.h"
 
-HeartRate::HeartRate(MicroBit &microbit) : HealthSensor(microbit), current_heart_rate(70) {}
+HeartRate::HeartRate(MicroBit &microbit) : HealthSensor(microbit), current_heart_rate(70) {
+    microbit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, this, &HeartRate::onButtonA);
+    microbit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, this, &HeartRate::onButtonB);
+}
 
-void HeartRate::calculate_heart_rate() {
-    if (uBit.buttonA.isPressed()) {
-        current_heart_rate += 5;
-    } 
-    if (uBit.buttonB.isPressed()) {
-        current_heart_rate -= 5;
-    }
+HeartRate::~HeartRate() {
+    uBit.display.scroll("HR Destroyed");
+}
 
-    if (current_heart_rate < 50) current_heart_rate = 50;
-    if (current_heart_rate > 180) current_heart_rate = 180;
+void HeartRate::onButtonA(MicroBitEvent e) {
+    current_heart_rate += 5;
+}
+
+void HeartRate::onButtonB(MicroBitEvent e) {
+    current_heart_rate -= 5;
 }
 
 int HeartRate::get_heart_rate() {
@@ -20,5 +23,5 @@ int HeartRate::get_heart_rate() {
 }
 
 void HeartRate::update() {
-    calculate_heart_rate();
+    // calculate_heart_rate();
 }
