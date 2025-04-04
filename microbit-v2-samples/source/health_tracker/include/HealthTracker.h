@@ -9,17 +9,17 @@
 #include "Buzzer.h"
 
 class HealthTracker {
-private:
-    StepCounter step_counter;
-    HeartRate heart_rate;
-    TempSensor temp_sensor;
-    DisplayManager display_manager;
-    Buzzer buzzer;
-    MicroBit &uBit;
-
 public:
     HealthTracker(MicroBit &uBit);
-
     void monitor();
+    int get_heart_rate() { return heart_rate.get_heart_rate(); }
+    int get_step_count() { return step_counter.get_steps(); }
+    int get_temperature() { return temp_sensor.get_temp(); }
+private:
+    StepCounter step_counter;
+    static HeartRate heart_rate;
+    TempSensor temp_sensor;
+    Buzzer buzzer;
+    MicroBit &uBit;
 };
 #endif

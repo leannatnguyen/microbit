@@ -2,15 +2,17 @@
 #define DISPLAYMANAGER_H
 
 #include "MicroBit.h"
-
+#include "HealthTracker.h"
 class DisplayManager {
+public:
+    DisplayManager(MicroBit &uBit, HealthTracker &tracker);
+    void update(); 
 private:
     MicroBit& microbit;
-
-public:
-    DisplayManager(MicroBit &uBit);
-
-    void update(int steps, int heartRate);  // Displays step count and heart rate alternately
+    HealthTracker &tracker;
+    int display_index;
+    int display_delay;
+    int last_display_time;
 };
 
 #endif
