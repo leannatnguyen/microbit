@@ -10,16 +10,16 @@
 
 class HealthTracker {
 public:
-    HealthTracker(MicroBit &uBit);
+HealthTracker(MicroBit &uBit, HeartRate &heart_rate);
     void monitor();
     int get_heart_rate() { return heart_rate.get_heart_rate(); }
     int get_step_count() { return step_counter.get_steps(); }
     int get_temperature() { return temp_sensor.get_temp(); }
 private:
+    MicroBit &uBit;
+    HeartRate &heart_rate;
     StepCounter step_counter;
-    static HeartRate heart_rate;
     TempSensor temp_sensor;
     Buzzer buzzer;
-    MicroBit &uBit;
 };
 #endif

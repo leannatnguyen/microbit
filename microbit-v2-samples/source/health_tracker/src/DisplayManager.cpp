@@ -1,4 +1,5 @@
 #include "DisplayManager.h"
+#include "HealthTracker.h"
 
 DisplayManager::DisplayManager(MicroBit &uBit, HealthTracker &tracker) : microbit(uBit), tracker(tracker), display_index(0), display_delay(2000) {
     last_display_time = uBit.systemTime();

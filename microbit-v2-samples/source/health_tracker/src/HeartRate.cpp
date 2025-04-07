@@ -23,5 +23,5 @@ int HeartRate::get_heart_rate() {
 }
 
 void HeartRate::update() {
-    // calculate_heart_rate();
+    
 }
