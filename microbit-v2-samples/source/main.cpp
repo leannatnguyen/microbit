@@ -11,10 +11,18 @@
 MicroBit uBit;
 
 int main() {
-    uBit.init();
+    uBit.init(); //Init the uBit object
+
+    static HeartRate heart_rate(uBit);
+
+    // create two static objects for Health Tracker and Display Manager 
+    // static = persists for entirety of the program
+    static HealthTracker health_tracker(uBit, heart_rate); // passed uBit (microbit instance)
     
-    static HealthTracker health_tracker(uBit);
-    static DisplayManager display_manager(uBit, health_tracker);
+    // passed microbit instance (to handle display) and health tracker instance (to fetch health 
+    // sensor data)
+    static DisplayManager display_manager(uBit, health_tracker); 
+
 
     int loop_delay = 100;
 

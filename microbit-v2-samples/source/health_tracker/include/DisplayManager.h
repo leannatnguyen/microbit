@@ -2,7 +2,8 @@
 #define DISPLAYMANAGER_H
 
 #include "MicroBit.h"
-#include "HealthTracker.h"
+
+class HealthTracker;  
 class DisplayManager {
 public:
     DisplayManager(MicroBit &uBit, HealthTracker &tracker);
